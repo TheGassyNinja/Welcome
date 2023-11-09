@@ -1,0 +1,13 @@
+DATE=02:49
+ETHER=eno1
+WIFI=wlo1
+cpu_idle=92.96
+netz_d=277.28
+netz_u=235.53
+ssh_connections=192.168.254.122
+ssh_count=1
+tmux_count=1
+rdisk_usage=28
+Ddisk_usage=74
+udisk_usage=23
+jdisk_usage=6

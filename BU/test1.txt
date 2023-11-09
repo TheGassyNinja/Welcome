@@ -1,0 +1,144 @@
+#!/bin/bash
+
+clear
+
+
+
+
+if nslookup google.com &> /dev/null; then
+    echo -ne "             Resolving..."; sleep 1; echo -ne "[success]\n"
+fi
+
+
+
+if ping -c 1 google.com &> /dev/null; then
+    echo -ne " Pinging..."; sleep 1; echo -ne "Ping successful"
+  else
+	  echo "no ping"
+fi
+
+#echo -e "\e[38;2;254;255;110mTHIS TEXT SHOULD BE YELLOW\e[0m"
+
+# ESC[48;2;{r};{g};{b}m
+
+# LOOK FOR KEEPS!!
+##
+##             \033[38;5;51m \033[0m
+
+
+## Loop through the ANSI color range for purple-like colors
+#for i in {170..227}; do
+#    printf "\e[48;5;${i}m \e[0m\n"
+#done
+#
+#
+#printf "\n"
+
+
+# Loop through the ANSI color range for purple-like colors
+#for i in {170..227}; do
+#    printf "\e[48;5;${i}m%-3d \e[0m" "$i"
+#    if (( (i - 169) % 8 == 0 )); then
+#        printf "\n"
+#    fi
+#done
+#
+#
+#printf "\n"
+#
+#
+#
+#echo -e " \033[38;5;213m   Purple: Output \033[0m  "
+#echo -e "\033[38;5;99m    Purple: Output \033[0m  "
+#echo -e " \033[38;5;63m   Purple: Output \033[0m  "
+#echo -e " \033[38;5;165m   Purple: Output \033[0m  "
+#echo -e "\033[38;5;13m    Purple: Output \033[0m  "
+#echo -e " \033[38;5;53m   Purple: Output \033[0m  "
+## Blue (Light to Dark)
+#echo -e " "
+#echo -e " "
+#
+#echo -e "\033[38;5;159m Blue: Output [159]\033[0m \033[38;5;213m    Purple: Output \033[0m "
+#echo -e "\033[38;5;123m Blue: Output [123]*\033[0m \033[38;5;165m   Purple: Output \033[0m "
+#echo -e "\033[38;5;80m Blue: Output  [80]\033[0m \033[38;5;99m    Purple: Output \033[0m "
+#echo -e "\033[38;5;45m Blue: Output  [45]*\033[0m \033[38;5;57m   Purple: Output \033[0m "
+#echo -e "\033[38;5;6m Blue: Output   [6]*\033[0m \033[38;5;53m   Purple: Output \033[0m "
+#echo -e "\033[38;5;31m Blue: Output  [31]\033[0m \033[38;5;13m    Purple: Output \033[0m "
+#
+#echo ""
+#
+#
+## Function to simulate a progress bar
+#draw_progress() {
+#    local width=40
+#    local progress=$((width * $1 / 100))
+#
+#    printf "["
+#    for ((i = 0; i < width; i++)); do
+#        if ((i <= progress)); then
+#            printf "󰮯 "
+#        else
+#            printf ".."
+#        fi
+#    done
+#    printf "] %d%%\r" "$1"
+#}
+#
+## Simulating a progress bar (updates)
+#for i in {0..100}; do
+#    draw_progress "$i"
+#    sleep 0.005  # Adjust sleep duration for speed
+#done
+#
+#echo -e "\nUpdate complete!"
+#
+##
+##
+##echo -e "\033[38;5;159m Blue: Output \033[0m "
+##echo -e "\033[38;5;159m Blue: Output \033[0m "
+##echo -e "\033[38;5;159m Blue: Output \033[0m "
+##echo -e "\033[38;5;159m Blue: Output \033[0m "
+##echo -e "\033[38;5;159m Blue: Output \033[0m "
+##echo -e "\033[38;5;159m Blue: Output \033[0m "
+##
+##
+#echo " "
+#echo " "
+#echo -e "  \033[38;5;123m Terminal: Alacritty \033[0m\033[38;5;45m  StartX:  $(grep ^exec ~/.xinitrc | cut -d' ' -f2)\033[0m\033[38;5;6m  Shell: $(echo $SHELL)\033[0m\033[38;5;31m  $(uname -o) $(uname -r)\033[0m"
+#
+#echo " "
+#echo " "
+#
+#
+
+#                          ##### KEEP !!!!!!
+# ANSI COLORS
+#for i in {0..255}; do
+#    printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
+#    if (( (i + 1) % 8 == 0 )); then
+#        printf "\n"
+#    fi
+#done
+
+##############################################
+## Set TERM to xterm-256colorV
+#export TERM=xterm-256color
+#
+## Your script commands using 256 colors
+#echo -e "\033[38;5;202mHello, this is a text in 256 colors!\033[0m"
+##############################################################
+
+
+
+## Check if Wifi
+#WIFI=$(nmcli connection | grep "wifi" | awk '${print $NF-1}') 
+#check-wifi () {
+#	if $WIFI > /dev/null; then
+#		echo " No Fi"
+#	else
+#		echo "Connected"
+#
+#	fi	
+#}
+#
+#check-wifi
