@@ -5,7 +5,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Thu Nov 09 2023 - 01:48
-#  Last Mod: Thu Nov 09 2023 - 05:15
+#  Last Mod: Thu Nov 09 2023 - 06:58
 #  Config:
 #  Depends:
 #  Note:
@@ -36,6 +36,7 @@ jdisk_usage=$(df $HOME/mnt/Jenny | awk 'NR==2 {print $5}' | tr -d '%'); echo "jd
 #
 
 #echo "Run Welcome...sh here"
+/home/thegassyninja/Git/Welcome/Welcome.v0.5.sh &
 #
 #
 #

@@ -5,12 +5,12 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Wed Nov 08 2023 - 07:19
-#  Last Mod: Thu Nov 09 2023 - 03:05
+#  Last Mod: Thu Nov 09 2023 - 05:48
 #  Config:
 #  Depends:
 #  Note:
 #!/bin/bash
-Storage="$HOME/Projects/Welcome/storage.txt"
+Storage="$HOME/Git/Welcome/storage.txt"
 
 ETHER=$(grep "ETHER" $Storage | cut -d= -f2)
 WIFI=$(grep "WIFI" $Storage | cut -d= -f2)

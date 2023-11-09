@@ -6,13 +6,15 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Mon Nov 06 2023 - 07:19
-#  Last Mod: Thu Nov 09 2023 - 05:13
+#  Last Mod: Thu Nov 09 2023 - 06:59
 #  Config: V0.3 Welcome.sh
 #  Depends: Sudo (mounting) - nslookup - nmcli
 #  Note: CLEAN UP! - Make Vars ([]) - Pac and Aur on own line. - Mount Section (Audio?) - Welcome (Audio?) 
 #  IDEA: Run Stats.sh in (new terminal) afternet confirm section. (For effect) 
 ##################################################################################
 #!bin/bash
+Storage=$HOME/Git/Welcome/storage.txt
+
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus export DISPLAY=:0;
 if [ -r "$HOME/.dbus/Xdbus" ]; then
 	. "$HOME/.dbus/Xdbus"
@@ -22,13 +24,16 @@ export TERM=xterm-256color
 mounted="$HOME/.config/bspwm/Scripts/all-remote-drives-have-been-mounted.mp3"
 #PING=$(ping -c 1 google.com) 
 #DNS=$(nslookup google.com | grep "google.com" | wc -l)
+ETHER=$(grep "ETHER" $Storage | cut -d= -f2)
+WIFI=$(grep "WIFI" $Storage | cut -d= -f2)
+
 ETHER=$(nmcli connection | grep "eno" | awk '{print $NF}') 
 WIFI=$(nmcli connection | grep "wlo1" | awk '{print $NF}') 
 sudo mount -t nfs -o vers=4 192.168.254.169:/srv/nfs/DataT ~/mnt/DataT
 sudo mount -t nfs -o vers=4 192.168.254.169:/srv/nfs/Jenny ~/mnt/Jenny 
 check_ether () {
 	if [[ $ETHER = "" ]]; then
-		echo -e "    \e[38;2;34;160;182 HARDLINE: \033[0m   \033[38;5;196m  [NEGATIVE!!]\033[0m"
+		echo -e "    \e[38;2;34;160;182m HARDLINE: \033[0m   \033[38;5;196m  [NEGATIVE!!]\033[0m"
 	else
 		echo -e "    \e[38;2;34;160;182m HARDLINE: \033[0m   \e[38;2;0;255;159m  [Connected]\033[0m"
 	fi	
@@ -87,7 +92,7 @@ if ping -c 1 google.com &> /dev/null; then
 	echo -ne "\e[38;2;44;132;255m         Ping...\e[0m"; echo -ne "       [success]\n"
 fi
 
-/home/thegassyninja/Projects/Welcome/Handler.sh &
+/home/thegassyninja/Git/Welcome/Handler.sh &
 
 sleep 0.2
 echo "                                ______________________________________" |lolcat

@@ -5,30 +5,37 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Tue Nov 07 2023 - 08:38
-#  Last Mod: Thu Nov 09 2023 - 03:21
+#  Last Mod: Thu Nov 09 2023 - 07:06
 #  Config: Stats.v.0.1.sh
 #  Depends: bc; 
 #  Note:
 #
 #
+# ETHER=$(grep "ETHER" $Storage | cut -d= -f2)
+# vwy 2w dt) i grep "esc"0pxi $Stor.... esc0j 
 #
-#
+# cpu_idle=$(grep "cpu_idle" $Storage | cut -d= -f2)
+
 #
 ###########################################################
 #!/bin/bash
+
+Storage="$HOME/Git/Welcome/storage.txt"
 clear
 
 echo ""
-cpu_idle="$(sar -u 1 1 | grep "Av" | awk '{print $NF}')"
-netz_d="$(grep "D" ~/.local/tmp/NETSPEED.txt | awk '{print $2}')"
-netz_u="$(grep "U" ~/.local/tmp/NETSPEED.txt | awk '{print $2}')"
-ssh_connections=$(ss -t -n | awk '$1 == "ESTAB" && ($NF ~ /:22$/ || $4 ~ /:22$/) {print $5}' | cut -d: -f1 | sort -u)
-ssh_count=$( echo $ssh_connections | wc -l)
-tmux_count=$(tmux ls | wc -l)
-rdisk_usage=$(df / | awk 'NR==2 {print $5}' | tr -d '%')
-Ddisk_usage=$(df $HOME/mnt/DataT | awk 'NR==2 {print $5}' | tr -d '%')
-udisk_usage=$(df $HOME/mnt/USB | awk 'NR==2 {print $5}' | tr -d '%')
-jdisk_usage=$(df $HOME/mnt/Jenny | awk 'NR==2 {print $5}' | tr -d '%')
+cpu_idle=$(grep "cpu_idle" $Storage | cut -d= -f2)
+netz_d=$(grep "netz_d" $Storage | cut -d= -f2)
+netz_u=$(grep "netz_u" $Storage | cut -d= -f2)
+ssh_connections=$(grep "ssh_connections" $Storage | cut -d= -f2)
+ssh_count=$( grep "ssh_count" $Storage | cut -d= -f2)
+tmux_count=$(grep "tmux_count" $Storage | cut -d= -f2)
+rdisk_usage=$(grep "rdisk_usage" $Storage | cut -d= -f2)
+Ddisk_usage=$(grep "Ddisk_usage" $Storage | cut -d= -f2)
+udisk_usage=$(grep "udisk_usage" $Storage | cut -d= -f2)
+jdisk_usage=$(grep "jdisk_usage" $Storage | cut -d= -f2)
+
+
 
 if [[ $cpu_idle =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
     cpu_use=$(echo "100 - $cpu_idle" | bc -l)

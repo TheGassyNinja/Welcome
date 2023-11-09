@@ -1,9 +1,9 @@
-DATE=02:49
+DATE=07:06
 ETHER=eno1
 WIFI=wlo1
-cpu_idle=92.96
-netz_d=277.28
-netz_u=235.53
+cpu_idle=93.81
+netz_d=
+netz_u=
 ssh_connections=192.168.254.122
 ssh_count=1
 tmux_count=1
