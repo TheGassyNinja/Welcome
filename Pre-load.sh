@@ -5,10 +5,29 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Thu Nov 09 2023 - 01:48
-#  Last Mod: Thu Nov 09 2023 - 06:58
+#  Last Mod: Thu Nov 09 2023 - 07:51
 #  Config:
 #  Depends:
 #  Note:
+
+######### Colors:
+#
+#  Palette: https://www.color-hex.com/color-palette/471 
+# #00aedb	(0,174,219)
+# #a200ff	(162,0,255)
+# #f47835	(244,120,53)
+# #d41243	(212,18,67)
+# #8ec127	(142,193,39)
+#
+#  		https://www.color-hex.com/color-palette/8898
+# #00ff00	(0,255,0)
+# #ff0000	(255,0,0)
+# #007b7b	(0,123,123)
+# #fa9c06	(250,156,6)
+# #292929	(41,41,41)
+#
+####################
+
 #!/bin/bash
 Storage="$HOME/Git/Welcome/storage.txt"
 echo "DATE=$(date +%R)" > $Storage 

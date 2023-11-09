@@ -6,11 +6,28 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Mon Nov 06 2023 - 07:19
-#  Last Mod: Thu Nov 09 2023 - 06:59
+#  Last Mod: Thu Nov 09 2023 - 08:43
 #  Config: V0.3 Welcome.sh
 #  Depends: Sudo (mounting) - nslookup - nmcli
 #  Note: CLEAN UP! - Make Vars ([]) - Pac and Aur on own line. - Mount Section (Audio?) - Welcome (Audio?) 
 #  IDEA: Run Stats.sh in (new terminal) afternet confirm section. (For effect) 
+######### Colors:
+#
+#  Palette: https://www.color-hex.com/color-palette/471 
+# #00aedb	(0,174,219)
+# #a200ff	(162,0,255)
+# #f47835	(244,120,53)
+# #d41243	(212,18,67)
+# #8ec127	(142,193,39)
+#
+#  		https://www.color-hex.com/color-palette/8898
+# #00ff00	(0,255,0)
+# #ff0000	(255,0,0)
+# #007b7b	(0,123,123)
+# #fa9c06	(250,156,6)
+# #292929	(41,41,41)
+#
+####################
 ##################################################################################
 #!bin/bash
 Storage=$HOME/Git/Welcome/storage.txt
@@ -66,7 +83,7 @@ done
 printf "\r"
 sleep 0.5
 clear  
-text="	(v0.5)    Starting Simulation....        << $(echo $USER@$HOSTNAME) >>"
+text="(v0.5)        Starting Simulation....        << $(echo $USER@$HOSTNAME) >>"
 for ((i=0; i<${#text}; i++)); do
 	echo -n -e "\033[38;5;196m${text:$i:1}\033[0m"  
 	sleep 0.025  
@@ -92,34 +109,76 @@ if ping -c 1 google.com &> /dev/null; then
 	echo -ne "\e[38;2;44;132;255m         Ping...\e[0m"; echo -ne "       [success]\n"
 fi
 
-/home/thegassyninja/Git/Welcome/Handler.sh &
+################################################################################## /home/thegassyninja/Git/Welcome/Handler.sh &
 
 sleep 0.2
 echo "                                ______________________________________" |lolcat
+
+
+
+
+
+
 text="     Checking NFS Mounts..."  
 for ((i=0; i<${#text}; i++)); do
-	echo -n -e "\033[38;5;196m${text:$i:1}\033[0m"  
+	echo -n -e "\e[38;2;0;255;0m${text:$i:1}\e[0m"  
 	sleep 0.05  
 done
+sleep 1
+
+######### Colors:
+#
+#  Palette: https://www.color-hex.com/color-palette/471 
+# #00aedb	(0,174,219)
+# #a200ff	(162,0,255)
+# #f47835	(244,120,53)
+# #d41243	(212,18,67)
+# #8ec127	(142,193,39)
+#
+#  		https://www.color-hex.com/color-palette/8898
+# #00ff00	(0,255,0)
+# #ff0000	(255,0,0)
+# #007b7b	(0,123,123)
+# #fa9c06	(250,156,6)
+# #292929	(41,41,41)
+#
+#
+#################################
+#Graids
+#	#f9c8f7	(249,200,247)
+#	#f9d6b3	(249,214,179)
+#	#eef2a6	(238,242,166)
+#	#a6d0f0	(166,208,240)
+#	#6da3ff	(109,163,255)
+###
+###
+#	#a9ffe5	(169,255,229)
+#	#88ffc8	(136,255,200)
+#	#46e0c1	(70,224,193)
+#	#237e73	(35,126,115)
+#	#0c5461	(12,84,97)
+####################
+
+
 file_path="$HOME/mnt/DataT/MOUNTED.txt"
 if [ -e "$file_path" ]; then
 	notify-send "DataT  -->  MOUNTED" 
-	sleep 0.5 && echo -en "\r\033[K                                                \033[38;5;202m DataT:\033[0m \e\033[38;5;202m    [Mounted]\033[0m\n"
+	sleep 0.5 && echo -en "\r\033[K                                                \e[38;2;249;200;247m DataT:\e[0m \e\033[38;5;202m    [Mounted]\033[0m\n"
 else
 	notify-send "ERROR!!!!! (DataT)"
-	sleep 0.5 && echo -en "\r\033[K                                                \033[38;5;202m DataT:\033[0m \e\033[38;5;196m  [FALIED]\033[0m\n"
+	sleep 0.5 && echo -en "\r\033[K                                                \e[38;2;0;174;219m DataT:\e[0m \e\033[38;5;196m  [FALIED]\033[0m\n"
 fi
 file_path="$HOME/mnt/Jenny/MOUNTED.txt"
 if [ -e "$file_path" ]; then
-	sleep 0.5 && echo -en "                                                \033[38;5;202m Jenny:\033[0m \e\033[38;5;202m    [Mounted]\033[0m\n"
+	sleep 0.5 && echo -en "                                                \e[38;2;249;214;179m Jenny:\e[0m \e\033[38;5;202m    [Mounted]\033[0m\n"
 	notify-send "Jenny  -->  MOUNTED"
 else
-	sleep 0.5 && echo -en "                                                \033[38;5;202m Jenny:\033[0m \e\033[38;5;196m  [FALIED]\033[0m\n"
+	sleep 0.5 && echo -en "                                                \e[38;2;0;174;219m Jenny:\e[0m \e\033[38;5;196m  [FALIED]\033[0m\n"
 	notify-send "ERROR!!!!! (JENNY)"
 fi
 file_path="$HOME/mnt/USB/MOUNTED.txt"
 if [ -e "$file_path" ]; then
-	sleep 0.5 && echo -en "                                                \033[38;5;202m USB:  \033[0m \e\033[38;5;202m    [Mounted]\033[0m\n"
+	sleep 0.5 && echo -en "                                                \e[38;2;238;242;166m USB:  \e[0m \e\033[38;5;202m    [Mounted]\033[0m\n"
 	notify-send "USB    -->  MOUNTED" 
 else
 	sleep 0.5 && echo -en "                                                \033[38;5;202m USB:  \033[0m \e\033[38;5;196m  [FALIED]\033[0m\n"

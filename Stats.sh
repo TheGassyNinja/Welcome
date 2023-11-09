@@ -5,15 +5,15 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Tue Nov 07 2023 - 08:38
-#  Last Mod: Thu Nov 09 2023 - 07:06
+#  Last Mod: Thu Nov 09 2023 - 07:36
 #  Config: Stats.v.0.1.sh
 #  Depends: bc; 
 #  Note:
 #
-#
-# ETHER=$(grep "ETHER" $Storage | cut -d= -f2)
+# (Macro for editing from OG)
 # vwy 2w dt) i grep "esc"0pxi $Stor.... esc0j 
 #
+# cpu_idle="$(sar -u 1 1 | grep "Av" | awk '{print $NF}')
 # cpu_idle=$(grep "cpu_idle" $Storage | cut -d= -f2)
 
 #
