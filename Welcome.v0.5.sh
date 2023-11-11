@@ -6,7 +6,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Mon Nov 06 2023 - 07:19
-#  Last Mod: Thu Nov 09 2023 - 08:43
+#  Last Mod: Thu Nov 09 2023 - 15:52
 #  Config: V0.3 Welcome.sh
 #  Depends: Sudo (mounting) - nslookup - nmcli
 #  Note: CLEAN UP! - Make Vars ([]) - Pac and Aur on own line. - Mount Section (Audio?) - Welcome (Audio?) 
@@ -109,7 +109,7 @@ if ping -c 1 google.com &> /dev/null; then
 	echo -ne "\e[38;2;44;132;255m         Ping...\e[0m"; echo -ne "       [success]\n"
 fi
 
-################################################################################## /home/thegassyninja/Git/Welcome/Handler.sh &
+/home/thegassyninja/Git/Welcome/Handler.sh &
 
 sleep 0.2
 echo "                                ______________________________________" |lolcat
