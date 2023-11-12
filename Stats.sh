@@ -5,7 +5,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Tue Nov 07 2023 - 08:38
-#  Last Mod: Fri Nov 10 2023 - 21:04
+#  Last Mod: Fri Nov 10 2023 - 23:19
 #  Config: Stats.v.0.1.sh
 #  Depends: bc; 
 #  Note:
