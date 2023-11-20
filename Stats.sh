@@ -5,7 +5,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Tue Nov 07 2023 - 08:38
-#  Last Mod: Fri Nov 10 2023 - 21:04
+#  Last Mod: Mon Nov 20 2023 - 03:16
 #  Config: Stats.v.0.1.sh
 #  Depends: bc; 
 #  Note:
@@ -21,7 +21,7 @@
 ###########################################################
 #!/bin/bash
 
-Storage="$HOME/Git/Welcome/storage.txt"
+Storage="$HOME/.local/tmp/MasterStorage.txt"
 clear
 
 echo ""
@@ -42,9 +42,9 @@ Ddisk_usage=$(grep "Ddisk_usage" $Storage | cut -d= -f2)
 Ddisk_size=$(grep "Ddisk_size" $Storage | cut -d= -f2)
 Ddisk_use=$(grep "Ddisk_use" $Storage | cut -d= -f2)
 
-udisk_usage=$(grep "udisk_usage" $Storage | cut -d= -f2)
-udisk_size=$(grep "udisk_size" $Storage | cut -d= -f2)
-udisk_use=$(grep "udisk_use" $Storage | cut -d= -f2)
+#udisk_usage=$(grep "udisk_usage" $Storage | cut -d= -f2)
+#udisk_size=$(grep "udisk_size" $Storage | cut -d= -f2)
+#udisk_use=$(grep "udisk_use" $Storage | cut -d= -f2)
 
 jdisk_usage=$(grep "jdisk_usage" $Storage | cut -d= -f2)
 jdisk_size=$(grep "jdisk_size" $Storage | cut -d= -f2)
@@ -52,15 +52,6 @@ jdisk_use=$(grep "jdisk_use" $Storage | cut -d= -f2)
 
 
 
-#Ddisk=$(df -hBG $HOME/mnt/DataT | grep "DataT" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $5, $2, $3}'); echo "Ddisk=$Ddisk" >> $Storage
-##Ddisk_usage=$(echo "$Ddisk" | awk '{print $1}'); echo "Ddisk_usage=$Ddisk_usage" >> $Storage
-##Ddisk_size=$(echo "$Ddisk" | awk '{print $2}'); echo "Ddisk_size=$Ddisk_size" >> $Storage
-##Ddisk_use=$(echo "$Ddisk" | awk '{print $3}'); echo "Ddisk_use=$Ddisk_use" >> $Storage
-##
-##jdisk=$(df -hBG $HOME/mnt/Jenny | grep "Jenny" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $5, $2, $3}'); echo "jdisk=$jdisk" >> $Storage
-##jdisk_usage=$(echo "$jdisk" | awk '{print $1}'); echo "jdisk_usage=$jdisk_usage" >> $Storage
-##jdisk_size=$(echo "$jdisk" | awk '{print $2}'); echo "jdisk_size=$jdisk_size" >> $Storage
-##jdisk_use=$(echo "$jdisk" | awk '{print $3}'); echo "jdisk_use=$jdisk_use" >> $Storage
 ##
 #
 #
@@ -105,18 +96,18 @@ done
 Dbar+=""
 
 
-# df @ ~/mnt/USB (NFS Mount)
-filled_blocks=$((($udisk_usage * 50) / 100))
-empty_blocks=$((50 - $filled_blocks))
-
-ubar=""
-for ((i = 1; i <= filled_blocks; i++)); do
-    ubar+="▓"
-done
-for ((i = 1; i <= empty_blocks; i++)); do
-    ubar+="░"
-done
-ubar+=""
+## df @ ~/mnt/USB (NFS Mount)
+#filled_blocks=$((($udisk_usage * 50) / 100))
+#empty_blocks=$((50 - $filled_blocks))
+#
+#ubar=""
+#for ((i = 1; i <= filled_blocks; i++)); do
+#    ubar+="▓"
+#done
+#for ((i = 1; i <= empty_blocks; i++)); do
+#    ubar+="░"
+#done
+#ubar+=""
 
 
 # df @ ~/mnt/Jenny (NFS Mount)
@@ -163,7 +154,7 @@ echo -e "${Yellow}    [${close}${Purple} DataT${close}${Yellow} ]${close}${Green
 echo " "
 echo -e "${Yellow}    [${close}${Purple} Jenny${close}${Yellow} ]${close}${Green} $jbar${close}${Yellow} [${close} ${Purple}$jdisk_usage${close}${Yellow}]${close}"
 echo " "
-echo -e "${Yellow}    [${close}${Purple}  USB${close}${Yellow}  ]${close}${Green} $ubar${close}${Yellow} [${close}${Purple}$udisk_usage${close}${Yellow}]${close}"
+#echo -e "${Yellow}    [${close}${Purple}  USB${close}${Yellow}  ]${close}${Green} $ubar${close}${Yellow} [${close}${Purple}$udisk_usage${close}${Yellow}]${close}"
 echo " "
 
 

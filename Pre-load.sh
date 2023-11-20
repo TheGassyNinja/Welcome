@@ -5,9 +5,9 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Thu Nov 09 2023 - 01:48
-#  Last Mod: Fri Nov 10 2023 - 21:02
+#  Last Mod: Mon Nov 20 2023 - 02:41
 #  Config:
-#  Depends:
+#  Depends: sysstat (sar for CPU use)
 #  Note:
 
 ######### Colors:
@@ -29,12 +29,12 @@
 ####################
 
 #!/bin/bash
-Storage="$HOME/Git/Welcome/storage.txt"
+Storage="$HOME/.local/tmp/Storage.txt"
 echo "DATE=$(date +%R)" > $Storage 
 #
 ## From Welcome.v0.3
-#PING=$(ping -c 1 google.com) 
-#DNS=$(nslookup google.com | grep "google.com" | wc -l)
+PING=$(ping -c 1 google.com); echo "PING=$PING" >> $Storage 
+DNS=$(nslookup google.com | grep "google.com" | wc -l); echo "DNS=$DNS" >> $Storage
 ETHER=$(nmcli connection | grep "eno" | awk '{print $NF}'); echo "ETHER=$ETHER" >> $Storage 
 WIFI=$(nmcli connection | grep "wlo1" | awk '{print $NF}'); echo "WIFI=$WIFI" >> $Storage 
 #
@@ -64,52 +64,16 @@ jdisk_size=$(echo "$jdisk" | awk '{print $2}'); echo "jdisk_size=$jdisk_size" >>
 jdisk_use=$(echo "$jdisk" | awk '{print $3}'); echo "jdisk_use=$jdisk_use" >> $Storage
 
 
-udisk=$(df -hBG $HOME/mnt/Jenny | grep "Jenny" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $5, $2, $3}' | tr -d '%'); echo "udisk=$udisk" >> $Storage
-udisk_usage=$(echo "$udisk" | awk '{print $1}'); echo "udisk_usage=$udisk_usage" >> $Storage
-udisk_size=$(echo "$udisk" | awk '{print $2}'); echo "udisk_size=$udisk_size" >> $Storage
-udisk_use=$(echo "$udisk" | awk '{print $3}'); echo "udisk_use=$udisk_use" >> $Storage
-
-
-
-
-
-
-#rdisk_usage=$(df -h / | grep "/" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $5, $2, $3}'); echo "rdisk_usage=$rdisk_usage" >> $Storage
-
-## Assign the values to variables
-#usage_percentage=$(echo "$df_output" | awk '{print $1}')
-#size=$(echo "$df_output" | awk '{print $2}')
-#used=$(echo "$df_output" | awk '{print $3}')
-#
-## Print the values
-#echo "Usage Percentage: $usage_percentage"
-#echo "Size: $size"
-#echo "Used: $used"
-
-
-
-
-# CLEAN THIS SECTION!!!! This can be done much better
-#rdisk_usage=$(df / | awk 'NR==2 {print $5}' | tr -d '%'); echo "rdisk_usage=$rdisk_usage" >> $Storage
-#Ddisk_usage=$(df $HOME/mnt/DataT | awk 'NR==2 {print $5}' | tr -d '%'); echo "Ddisk_usage=$Ddisk_usage" >> $Storage
-#udisk_usage=$(df $HOME/mnt/USB | awk 'NR==2 {print $5}' | tr -d '%'); echo "udisk_usage=$udisk_usage" >> $Storage
-#jdisk_usage=$(df $HOME/mnt/Jenny | awk 'NR==2 {print $5}' | tr -d '%'); echo "jdisk_usage=$jdisk_usage" >> $Storage
-#
-#rdisk_size=$(df -hBG / | grep "/" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $2, $3}'); echo "rdisk_size=$rdisk_size" >> $Storage
-#Ddisk_size=$(df -hBG $HOME/mnt/DataT | grep "DataT" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $2, $3}'); echo "Ddisk_size=$Ddisk_size" >> $Storage
-#udisk_size=$(df -hBG $HOME/mnt/USB | grep "USB" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $2, $3}'); echo "udisk_size=$udisk_size" >> $Storage
-#jdisk_size=$(df -hBG $HOME/mnt/Jenny | grep "Jenny" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $2, $3}'); echo "jdisk_size=$jdisk_size" >> $Storage
- 
-
+#udisk=$(df -hBG $HOME/mnt/Jenny | grep "Jenny" | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print $5, $2, $3}' | tr -d '%'); echo "udisk=$udisk" >> $Storage
+#udisk_usage=$(echo "$udisk" | awk '{print $1}'); echo "udisk_usage=$udisk_usage" >> $Storage
+#udisk_size=$(echo "$udisk" | awk '{print $2}'); echo "udisk_size=$udisk_size" >> $Storage
+#udisk_use=$(echo "$udisk" | awk '{print $3}'); echo "udisk_use=$udisk_use" >> $Storage
 #
 #
-#
-
 #echo "Run Welcome...sh here"
 /home/thegassyninja/Git/Welcome/Welcome.v0.5.sh &
 #
 #
-# 					df -hBG | awk '{gsub(/[A-Za-z]/, "", $2); gsub(/[A-Za-z]/, "", $3); print}'
 #
 #
 #

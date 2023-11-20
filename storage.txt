@@ -1,25 +1,33 @@
-DATE=21:05
+DATE=02:37
+PING=PING google.com (142.250.113.101) 56(84) bytes of data.
+64 bytes from rs-in-f101.1e100.net (142.250.113.101): icmp_seq=1 ttl=106 time=7.32 ms
+
+--- google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 7.319/7.319/7.319/0.000 ms
+DNS=10
 ETHER=eno1
-WIFI=wlo1
-cpu_idle=95.77
+WIFI=
+cpu_idle=92.67
 netz_d=
 netz_u=
 ssh_connections=192.168.254.122
+192.168.254.169
 ssh_count=1
 tmux_count=1
-rdisk=28 224 62
-rdisk_usage=28
-rdisk_size=224
-rdisk_use=62
+rdisk=9 219 18
+rdisk_usage=9
+rdisk_size=219
+rdisk_use=18
 Ddisk=74 932 687
 Ddisk_usage=74
 Ddisk_size=932
 Ddisk_use=687
-jdisk=6 934 53
-jdisk_usage=6
-jdisk_size=934
-jdisk_use=53
-udisk=6 934 53
-udisk_usage=6
-udisk_size=934
-udisk_use=53
+jdisk=
+jdisk_usage=
+jdisk_size=
+jdisk_use=
+udisk=
+udisk_usage=
+udisk_size=
+udisk_use=

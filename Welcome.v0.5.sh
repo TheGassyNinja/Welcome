@@ -6,7 +6,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Mon Nov 06 2023 - 07:19
-#  Last Mod: Thu Nov 09 2023 - 15:52
+#  Last Mod: Mon Nov 20 2023 - 03:10
 #  Config: V0.3 Welcome.sh
 #  Depends: Sudo (mounting) - nslookup - nmcli
 #  Note: CLEAN UP! - Make Vars ([]) - Pac and Aur on own line. - Mount Section (Audio?) - Welcome (Audio?) 
@@ -30,19 +30,14 @@
 ####################
 ##################################################################################
 #!bin/bash
-Storage=$HOME/Git/Welcome/storage.txt
+Storage=$HOME/.local/tmp/Storage.txt
 
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus export DISPLAY=:0;
 if [ -r "$HOME/.dbus/Xdbus" ]; then
 	. "$HOME/.dbus/Xdbus"
 fi
 # Set TERM to xterm-256color
-export TERM=xterm-256color
-mounted="$HOME/.config/bspwm/Scripts/all-remote-drives-have-been-mounted.mp3"
-#PING=$(ping -c 1 google.com) 
-#DNS=$(nslookup google.com | grep "google.com" | wc -l)
-ETHER=$(grep "ETHER" $Storage | cut -d= -f2)
-WIFI=$(grep "WIFI" $Storage | cut -d= -f2)
+#export TERM=xterm-256color
 
 ETHER=$(nmcli connection | grep "eno" | awk '{print $NF}') 
 WIFI=$(nmcli connection | grep "wlo1" | awk '{print $NF}') 
