@@ -5,7 +5,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Tue Nov 07 2023 - 10:31
-#  Last Mod: Thu Nov 09 2023 - 05:16
+#  Last Mod: Mon Nov 20 2023 - 06:11
 #  Config:
 #  Depends:
 #  Note: Concept is to open windows in the right order at the right time. (DWM ISSUE??)
@@ -21,15 +21,17 @@
 #
 #
 #!/bin/bash
-# Never see this script run.
-# clear
-# echo "Testing"
-# sleep 5
 
  
-alacritty -e bash -c '/home/thegassyninja/Git/Welcome/Functions/fzf-pac.sh; bash' &
-sleep 0.2
+#alacritty -e bash -c '/home/thegassyninja/Git/Welcome/Functions/fzf-pac.sh; bash' &
 #alacritty -e bash -c '/home/thegassyninja/Projects/Welcome/Actions.sh; bash' &
+alacritty -e bash -c '/home/thegassyninja/Projects/Testing/Playerctl/My-spot.sh; bash' &
+sleep 0.3
+bspc node -p south; bspc node -o 0.28
+alacritty -e cava &
 sleep 0.2
+bspc node -p south; bspc node -o 0.10
 alacritty -e bash -c '/home/thegassyninja/Git/Welcome/Stats.sh; bash' &
 
+
+exit 0

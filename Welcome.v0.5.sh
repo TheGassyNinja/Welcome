@@ -6,7 +6,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Mon Nov 06 2023 - 07:19
-#  Last Mod: Mon Nov 20 2023 - 03:10
+#  Last Mod: Mon Nov 20 2023 - 05:53
 #  Config: V0.3 Welcome.sh
 #  Depends: Sudo (mounting) - nslookup - nmcli
 #  Note: CLEAN UP! - Make Vars ([]) - Pac and Aur on own line. - Mount Section (Audio?) - Welcome (Audio?) 
@@ -36,8 +36,6 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus export DISPLAY=:0;
 if [ -r "$HOME/.dbus/Xdbus" ]; then
 	. "$HOME/.dbus/Xdbus"
 fi
-# Set TERM to xterm-256color
-#export TERM=xterm-256color
 
 ETHER=$(nmcli connection | grep "eno" | awk '{print $NF}') 
 WIFI=$(nmcli connection | grep "wlo1" | awk '{print $NF}') 
@@ -93,7 +91,7 @@ echo "  ========================================================================
 echo -e "  \033[38;5;123m Terminal: Alacritty \033[0m\033[38;5;45m  StartX:  $(grep ^exec ~/.xinitrc | cut -d' ' -f2)\033[0m\033[38;5;6m  Shell: $(echo $SHELL)\033[0m\033[38;5;31m  $(uname -o) $(uname -r)\033[0m"
 echo ""
 echo -e "\e[38;2;0;255;249m                   [Pacman]\e[0m\e[38;2;0;184;255m  ($(pacman -Qq | wc -l))\e[0m\e[38;2;169;166;166m   <-Packages->\e[0m\e[38;2;0;255;249m   [AUR]\e[0m\e[38;2;0;184;255m    ($(yay -Qm  | wc -l))\e[0m"
-echo -e "\e[38;2;0;255;249m                   [Pacman]\e[0m\e[38;2;255;0;149m    ($(pacman -Qu | wc -l))\e[0m\e[38;2;169;166;166m   <-Updates-->\e[0m\e[38;2;0;255;249m   [AUR]\e[0m\e[38;2;255;0;149m     ($(yay -Qum  | wc -l))\e[0m"
+echo -e "\e[38;2;0;255;249m                   [Pacman]\e[0m\e[38;2;255;0;149m    ($(pacman -Qu | wc -l))\e[0m\e[38;2;169;166;166m   <-Updates-->\e[0m\e[38;2;0;255;249m   [AUR]\e[0m\e[38;2;255;0;149m    ($(yay -Qum  | wc -l))\e[0m"
 echo "            __________________________________________________________" |lolcat
 echo -e "           $(check_wifi)  $(check_ether)"
 sleep 0.8
@@ -184,5 +182,6 @@ for ((i=0; i<${#text}; i++)); do
 	echo -n -e "\033[38;5;32m${text:$i:1}\033[0m"  
 	sleep 0.05  
 done
-echo -e "\n"
+echo -e "\n" 
+echo -e "$PS1"
 # No Errors^^

@@ -5,7 +5,7 @@
 #   |_| |_| |_|\___|\____|\__,_|___/___/\__, |_| \_|_|_| |_|/ |\__,_|
 #                                       |___/             |__/       
 #   Spawned: Tue Nov 07 2023 - 08:38
-#  Last Mod: Mon Nov 20 2023 - 03:16
+#  Last Mod: Mon Nov 20 2023 - 06:19
 #  Config: Stats.v.0.1.sh
 #  Depends: bc; 
 #  Note:
@@ -135,17 +135,9 @@ close='\e[0m'
 ###
 
 
-echo -e "${Yellow}  $(date +%R)                                                                                         $(inxi -B | grep "BAT0" | awk '{print$6}')${close}"
-echo -e "${Blue}       [RAM: $(free | grep Mem | awk '{print $3/$2 * 100.0}' | cut -d . -f 1)%]							            [CPU: $cpu_use%]${close}"
+echo -e "${Yellow}  $(date +%R)                                                                             $(inxi -B | grep "BAT0" | awk '{print$6}')${close}"
 echo -e "${Yellow}                 [Down: $netz_d Mb/s]${close} 	${Purple}SSH: <$ssh_count>${close}  ${Yellow} <>${close}  ${Purple} Tmux: <$tmux_count>${close}  ${Yellow}[Up: $netz_u Mb/s]${close} "
-{
-echo -e "                   _________________________________________________________________ "
-echo -e "                   ----->   $USER@$HOSTNAME   : : :    192.168.254.131    <-----"
-echo -e "                   ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ "
-} | lolcat -a -s 10
 
-echo " "
-echo " "
 echo " "
 echo " "
 echo -e "${Yellow}      [${close}${Purple} /${close}${Yellow} ]${close}${Green}   $rbar${close}                                     ${Yellow} [${close}${Purple}$rdisk_usage${close}${Yellow}]${close}"
